@@ -1,5 +1,5 @@
 # -*- mode: dockerfile; coding: utf-8 -*-
-FROM debian:buster-slim AS build
+FROM debian:bullseye-slim AS build
 RUN apt-get update && apt-get -y --no-install-recommends install \
       build-essential \
       libffi-dev \
@@ -24,10 +24,10 @@ RUN make
 RUN make check
 RUN make install
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 RUN apt-get update && apt-get -y --no-install-recommends install \
       libffi6 \
-      libgc1c2 \
+      libgc1 \
       libgmp10 \
       libltdl7 \
       libncurses6 \
